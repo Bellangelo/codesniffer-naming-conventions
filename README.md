@@ -1,0 +1,1 @@
+# codesniffer-naming-conventions
