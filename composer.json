@@ -1,0 +1,20 @@
+{
+    "name": "bellangelo/codesniffer-naming-conventions",
+    "description": "A list of Sniffs to set naming conventions in variables, properties, methods, function and classes.",
+    "type": "phpcodesniffer-standard",
+    "require": {
+        "squizlabs/php_codesniffer": "^3.10"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bellangelo\\CodesnifferNamingConventions\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Aggelos Bellos",
+            "email": "aggelosbellos7@gmail.com"
+        }
+    ]
+}
