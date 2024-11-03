@@ -4,15 +4,24 @@ declare(strict_types=1);
 
 namespace Bellangelo\CodesnifferNamingConventions\Sniffs;
 
+use Doctrine\Inflector\Inflector;
 use Doctrine\Inflector\InflectorFactory;
 use Doctrine\Inflector\Language;
 use Override;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+use SlevomatCodingStandard\Helpers\FixerHelper;
 
 final class SingularClassNameSniff implements Sniff
 {
     public const string CODE_PLURAL_IN_CLASS_NAME = 'PluralInClassName';
+
+    private Inflector $inflector;
+
+    public function __construct()
+    {
+        $this->inflector = InflectorFactory::createForLanguage(Language::ENGLISH)->build();
+    }
 
     #[Override]
     public function register()
@@ -34,19 +43,29 @@ final class SingularClassNameSniff implements Sniff
         $tokens = $phpcsFile->getTokens();
         $className = $tokens[$classNamePointer]['content'];
 
-        if ($this->isPlural($className)) {
-            $phpcsFile->addError(
-                'Class name should end in singular',
-                $stackPtr,
-                self::CODE_PLURAL_IN_CLASS_NAME
-            );
+        if (!$this->isPlural($className)) {
+            return;
         }
+
+        $fix = $phpcsFile->addFixableError(
+            'Class name should end in singular',
+            $stackPtr,
+            self::CODE_PLURAL_IN_CLASS_NAME
+        );
+
+        if (!$fix) {
+            return;
+        }
+
+        $phpcsFile->fixer->beginChangeset();
+
+        $phpcsFile->fixer->replaceToken($classNamePointer, $this->inflector->singularize($className));
+
+        $phpcsFile->fixer->endChangeset();
     }
 
     private function isPlural(string $className): bool
     {
-        $inflector = InflectorFactory::createForLanguage(Language::ENGLISH)->build();
-
-        return $inflector->pluralize($className) === $className;
+        return $this->inflector->pluralize($className) === $className;
     }
 }
