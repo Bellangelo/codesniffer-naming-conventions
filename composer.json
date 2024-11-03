@@ -12,10 +12,18 @@
             "Bellangelo\\CodesnifferNamingConventions\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Bellangelo\\CodesnifferNamingConventions\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Aggelos Bellos",
             "email": "aggelosbellos7@gmail.com"
         }
-    ]
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^11.4"
+    }
 }
