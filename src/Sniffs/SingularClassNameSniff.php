@@ -66,6 +66,6 @@ final class SingularClassNameSniff implements Sniff
 
     private function isPlural(string $className): bool
     {
-        return $this->inflector->pluralize($className) === $className;
+        return $this->inflector->singularize($className) !== $className;
     }
 }

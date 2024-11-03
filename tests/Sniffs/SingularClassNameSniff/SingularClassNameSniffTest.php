@@ -31,17 +31,17 @@ class SingularClassNameSniffTest extends TestCase
         self::assertSame(0, $report->getErrorCount());
     }
 
-    public function testClassNameEndsInSButIsSingular(): void
-    {
-        $report = self::checkFile(__DIR__ . '/data/SingularWordThatEndsInSCrisis.php');
-
-        self::assertSame(0, $report->getErrorCount());
-    }
-
-    public function testClassNameUsesPluralButDoesNotEndInS(): void
+    public function testClassNameWithIrregular(): void
     {
         $report = self::checkFile(__DIR__ . '/data/PluralWordWithoutSChildren.php');
 
-        self::assertSame(0, $report->getErrorCount());
+        self::assertSame(1, $report->getErrorCount());
+
+        self::assertSniffError(
+            $report,
+            7,
+            SingularClassNameSniff::CODE_PLURAL_IN_CLASS_NAME,
+            'Class name should end in singular'
+        );
     }
 }
