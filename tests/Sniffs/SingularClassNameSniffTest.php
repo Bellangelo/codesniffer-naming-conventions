@@ -28,4 +28,18 @@ class SingularClassNameSniffTest extends TestCase
 
         self::assertSame(0, $report->getErrorCount());
     }
+
+    public function test_class_name_ends_in_s_but_is_singular(): void
+    {
+        $report = self::checkFile(__DIR__ . '/data/SingularWordThatEndsInSCrisis.php');
+
+        self::assertSame(0, $report->getErrorCount());
+    }
+
+    public function test_class_name_uses_plural_but_does_not_end_in_s(): void
+    {
+        $report = self::checkFile(__DIR__ . '/data/PluralWordWithoutSChildren.php');
+
+        self::assertSame(0, $report->getErrorCount());
+    }
 }
