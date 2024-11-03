@@ -12,7 +12,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 final class SingularClassNameSniff implements Sniff
 {
-    public const CODE_PLURAL_IN_CLASS_NAME = 'PluralInClassName';
+    public const string CODE_PLURAL_IN_CLASS_NAME = 'PluralInClassName';
 
     #[Override]
     public function register()
