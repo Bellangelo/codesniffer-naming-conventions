@@ -10,14 +10,18 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 final class SingularClassNameSniff implements Sniff
 {
-    #[Override] public function register()
+    public const CODE_PLURAL_IN_CLASS_NAME = 'PluralInClassName';
+
+    #[Override]
+    public function register()
     {
         return [
             T_CLASS,
         ];
     }
 
-    #[Override] public function process(File $phpcsFile, $stackPtr)
+    #[Override]
+    public function process(File $phpcsFile, $stackPtr)
     {
         $classNamePointer = $phpcsFile->findNext([T_STRING], $stackPtr);
 
@@ -29,7 +33,11 @@ final class SingularClassNameSniff implements Sniff
         $className = $tokens[$classNamePointer]['content'];
 
         if (substr($className, -1) === 's') {
-            $phpcsFile->addError('Class name should be singular', $stackPtr);
+            $phpcsFile->addError(
+                'Class name should end in singular',
+                $stackPtr,
+                self::CODE_PLURAL_IN_CLASS_NAME
+            );
         }
     }
 }
