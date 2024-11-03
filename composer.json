@@ -14,7 +14,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Bellangelo\\CodesnifferNamingConventions\\Tests\\": "tests/"
+            "Bellangelo\\CodesnifferNamingConventions\\": "tests/"
         }
     },
     "authors": [
