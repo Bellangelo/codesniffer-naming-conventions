@@ -42,7 +42,7 @@ final class SingularClassNameSniff implements Sniff
         $tokens = $phpcsFile->getTokens();
         $className = $tokens[$classNamePointer]['content'];
 
-        if (!$this->isPlural($className)) {
+        if ($this->isSingular($className)) {
             return;
         }
 
@@ -63,8 +63,8 @@ final class SingularClassNameSniff implements Sniff
         $phpcsFile->fixer->endChangeset();
     }
 
-    private function isPlural(string $className): bool
+    private function isSingular(string $className): bool
     {
-        return $this->inflector->singularize($className) !== $className;
+        return $this->inflector->singularize($className) === $className;
     }
 }
