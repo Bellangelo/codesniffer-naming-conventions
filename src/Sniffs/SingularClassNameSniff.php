@@ -10,7 +10,6 @@ use Doctrine\Inflector\Language;
 use Override;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
-use SlevomatCodingStandard\Helpers\FixerHelper;
 
 final class SingularClassNameSniff implements Sniff
 {
