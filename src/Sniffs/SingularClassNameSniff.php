@@ -24,7 +24,7 @@ final class SingularClassNameSniff implements Sniff
 	}
 
 	/**
-	 * @return array<string>
+	 * @return array<int>
 	 */
 	#[Override]
 	public function register(): array
@@ -38,7 +38,6 @@ final class SingularClassNameSniff implements Sniff
 	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
 	 * @param int $stackPtr
 	 */
-	#[Override]
 	public function process(File $phpcsFile, $stackPtr): void
 	{
 		$classNamePointer = $phpcsFile->findNext([T_STRING], $stackPtr);
