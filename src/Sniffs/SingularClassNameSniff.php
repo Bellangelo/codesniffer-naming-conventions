@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Bellangelo\CodesnifferNamingConventions\Sniffs;
 
@@ -10,61 +8,68 @@ use Doctrine\Inflector\Language;
 use Override;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
+use const T_CLASS;
+use const T_STRING;
 
 final class SingularClassNameSniff implements Sniff
 {
-    public const string CODE_PLURAL_IN_CLASS_NAME = 'PluralInClassName';
 
-    private Inflector $inflector;
+	public const string CODE_PLURAL_IN_CLASS_NAME = 'PluralInClassName';
 
-    public function __construct()
-    {
-        $this->inflector = InflectorFactory::createForLanguage(Language::ENGLISH)->build();
-    }
+	private Inflector $inflector;
 
-    #[Override]
-    public function register()
-    {
-        return [
-            T_CLASS,
-        ];
-    }
+	public function __construct()
+	{
+		$this->inflector = InflectorFactory::createForLanguage(Language::ENGLISH)->build();
+	}
 
-    #[Override]
-    public function process(File $phpcsFile, $stackPtr)
-    {
-        $classNamePointer = $phpcsFile->findNext([T_STRING], $stackPtr);
+	/**
+	 * @return array<string>
+	 */
+	#[Override]
+	public function register(): array
+	{
+		return [
+			T_CLASS,
+		];
+	}
 
-        if ($classNamePointer === false) {
-            return;
-        }
+	/**
+	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
+	 * @param int $stackPtr
+	 */
+	#[Override]
+	public function process(File $phpcsFile, $stackPtr): void
+	{
+		$classNamePointer = $phpcsFile->findNext([T_STRING], $stackPtr);
 
-        $tokens = $phpcsFile->getTokens();
-        $className = $tokens[$classNamePointer]['content'];
+		if ($classNamePointer === false) {
+			return;
+		}
 
-        if ($this->isSingular($className)) {
-            return;
-        }
+		$tokens = $phpcsFile->getTokens();
+		$className = $tokens[$classNamePointer]['content'];
 
-        $fix = $phpcsFile->addFixableError(
-            'Class name should end in singular',
-            $stackPtr,
-            self::CODE_PLURAL_IN_CLASS_NAME
-        );
+		if ($this->isSingular($className)) {
+			return;
+		}
 
-        if (!$fix) {
-            return;
-        }
+		$fix = $phpcsFile->addFixableError('Class name should end in singular', $stackPtr, self::CODE_PLURAL_IN_CLASS_NAME);
 
-        $phpcsFile->fixer->beginChangeset();
+		if (!$fix) {
+			return;
+		}
 
-        $phpcsFile->fixer->replaceToken($classNamePointer, $this->inflector->singularize($className));
+		$phpcsFile->fixer->beginChangeset();
 
-        $phpcsFile->fixer->endChangeset();
-    }
+		$phpcsFile->fixer->replaceToken($classNamePointer, $this->inflector->singularize($className));
 
-    private function isSingular(string $className): bool
-    {
-        return $this->inflector->singularize($className) === $className;
-    }
+		$phpcsFile->fixer->endChangeset();
+	}
+
+	private function isSingular(string $className): bool
+	{
+		return $this->inflector->singularize($className) === $className;
+	}
+
 }
