@@ -7,6 +7,6 @@
          stopOnFailure="false"
          failOnWarning="true"
          backupStaticProperties="false"
-         bootstrap="tests/bootstrap.php"
+         bootstrap="bootstrap.php"
 >
 </phpunit>
