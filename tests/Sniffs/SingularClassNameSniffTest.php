@@ -1,8 +1,7 @@
 <?php declare(strict_types = 1);
 
-namespace Bellangelo\CodesnifferNamingConventions\Sniffs;
+namespace BellangeloCodingStandards\Sniffs;
 
-use BellangeloCodingStandards\Sniffs\SingularClassNameSniff;
 use SlevomatCodingStandard\Sniffs\TestCase;
 
 class SingularClassNameSniffTest extends TestCase

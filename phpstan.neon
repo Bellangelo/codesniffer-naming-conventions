@@ -1,7 +1,7 @@
 parameters:
 	level: 9
 	paths:
-		- src
+		- BellangeloCodingStandards
 		- tests
 	bootstrapFiles:
 		- bootstrap.php

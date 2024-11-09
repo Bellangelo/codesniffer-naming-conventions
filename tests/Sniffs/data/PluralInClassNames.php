@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bellangelo\CodesnifferNamingConventions\Sniffs\data;
+namespace BellangeloCodingStandards\BellangeloCodingStandards\Sniffs\data;
 
 class PluralInClassNames
 {
