@@ -19,18 +19,20 @@ use const T_STRING;
 class DuplicateWordInNamingSniff implements Sniff
 {
 
-	public const string CODE_DUPLICATED_WORD_CLASS_NAME = 'DuplicateWordInClassName';
+	/**
+  * @var string
+  */
+ public const CODE_DUPLICATED_WORD_CLASS_NAME = 'DuplicateWordInClassName';
 
 	/**
 	 * @return array<int>
 	 */
-	#[Override]
 	public function register(): array
-	{
-		return [
-			T_CLASS,
-		];
-	}
+ {
+     return [
+   			T_CLASS,
+   		];
+ }
 
 	/**
 	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
