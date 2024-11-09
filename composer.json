@@ -10,7 +10,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Bellangelo\\CodesnifferNamingConventions\\": "src/"
+            "Bellangelo\\CodesnifferNamingConventions\\": "BellangeloCodingStandards/"
         }
     },
     "autoload-dev": {

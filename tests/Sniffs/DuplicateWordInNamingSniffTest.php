@@ -2,6 +2,7 @@
 
 namespace Bellangelo\CodesnifferNamingConventions\Sniffs;
 
+use BellangeloCodingStandards\Sniffs\DuplicateWordInNamingSniff;
 use SlevomatCodingStandard\Sniffs\TestCase;
 
 class DuplicateWordInNamingSniffTest extends TestCase

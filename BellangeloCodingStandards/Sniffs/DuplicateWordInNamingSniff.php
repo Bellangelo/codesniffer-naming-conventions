@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Bellangelo\CodesnifferNamingConventions\Sniffs;
+namespace BellangeloCodingStandards\Sniffs;
 
 use ErrorException;
 use Override;

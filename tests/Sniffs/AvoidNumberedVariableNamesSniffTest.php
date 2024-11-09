@@ -2,6 +2,7 @@
 
 namespace Bellangelo\CodesnifferNamingConventions\Sniffs;
 
+use BellangeloCodingStandards\Sniffs\AvoidNumberedVariableNamesSniff;
 use SlevomatCodingStandard\Sniffs\TestCase;
 
 class AvoidNumberedVariableNamesSniffTest extends TestCase

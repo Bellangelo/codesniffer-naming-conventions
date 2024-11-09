@@ -2,6 +2,7 @@
 
 namespace Bellangelo\CodesnifferNamingConventions\Sniffs;
 
+use BellangeloCodingStandards\Sniffs\SingularClassNameSniff;
 use SlevomatCodingStandard\Sniffs\TestCase;
 
 class SingularClassNameSniffTest extends TestCase
