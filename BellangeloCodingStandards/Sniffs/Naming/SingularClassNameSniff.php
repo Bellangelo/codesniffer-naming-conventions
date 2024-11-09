@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace BellangeloCodingStandards\Sniffs;
+namespace BellangeloCodingStandards\Sniffs\Naming;
 
 use Doctrine\Inflector\Inflector;
 use Doctrine\Inflector\InflectorFactory;
