@@ -2,6 +2,7 @@
 
 namespace Bellangelo\CodesnifferNamingConventions\Sniffs;
 
+use Override;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use function preg_match;
