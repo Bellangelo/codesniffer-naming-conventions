@@ -1,5 +1,5 @@
 {
-	"name": "bellangelo/coding-standards",
+	"name": "bellangelo/coding-standard",
 	"description": "Bellangelo Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
 	"type": "phpcodesniffer-standard",
 	"require": {
@@ -16,12 +16,12 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"BellangeloCodingStandards\\": "BellangeloCodingStandards/"
+			"BellangeloCodingStandard\\": "BellangeloCodingStandard/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"BellangeloCodingStandards\\": "tests/"
+			"BellangeloCodingStandard\\": "tests/"
 		}
 	},
 	"authors": [

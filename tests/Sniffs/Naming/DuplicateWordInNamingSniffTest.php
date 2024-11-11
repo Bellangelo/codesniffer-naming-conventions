@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace BellangeloCodingStandards\Sniffs\Naming;
+namespace BellangeloCodingStandard\Sniffs\Naming;
 
 use SlevomatCodingStandard\Sniffs\TestCase;
 

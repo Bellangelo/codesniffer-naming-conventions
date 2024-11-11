@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BellangeloCodingStandards\BellangeloCodingStandards\Sniffs\data;
+namespace BellangeloCodingStandard\BellangeloCodingStandard\Sniffs\data;
 
 class ClassNameWithDuplicatedWordWord
 {
