@@ -3,7 +3,7 @@
     "description": "Bellangelo Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
     "type": "phpcodesniffer-standard",
     "require": {
-        "squizlabs/php_codesniffer": "^3.10",
+        "squizlabs/php_codesniffer": "^3",
         "php": "^v8.3",
         "doctrine/inflector": "^2.0"
     },
