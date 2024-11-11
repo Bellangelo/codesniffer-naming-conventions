@@ -26,7 +26,7 @@ jobs:
                 coverage: none
             - uses: ramsey/composer-install@v2
             - uses: ./.github/actions/downgrade
-            - run: cd build && composer install
+            - run: composer install
 
     phpcs:
         name: CodeSniffer
