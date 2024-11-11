@@ -19,14 +19,12 @@ jobs:
         timeout-minutes: 10
 
         steps:
-            - uses: actions/checkout@v3
+            - uses: ./.github/actions/downgrade
             - uses: shivammathur/setup-php@v2
               with:
-                php-version: 7.4
-                coverage: none
+               php-version: 7.4
+               coverage: none
             - uses: ramsey/composer-install@v2
-            - uses: ./.github/actions/downgrade
-            - run: composer install
 
     phpcs:
         name: CodeSniffer
