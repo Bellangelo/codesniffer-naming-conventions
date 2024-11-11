@@ -11,18 +11,20 @@ use const T_VARIABLE;
 class AvoidNumberedVariableNamesSniff implements Sniff
 {
 
-	public const string CODE_NUMBERED_VARIABLE = 'NumberedVariable';
+	/**
+  * @var string
+  */
+ public const CODE_NUMBERED_VARIABLE = 'NumberedVariable';
 
 	/**
 	 * @return array<int>
 	 */
-	#[Override]
 	public function register(): array
-	{
-		return [
-			T_VARIABLE,
-		];
-	}
+ {
+     return [
+   			T_VARIABLE,
+   		];
+ }
 
 	/**
 	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
