@@ -21,6 +21,3 @@ runs:
         # copy PHP 7.4 composer
         -   run: cp -rf build/composer-php-74.json composer.json
             shell: bash
-
-        -   run: cp -rf build/composer-php-74.lock composer.lock
-            shell: bash

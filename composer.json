@@ -5,7 +5,8 @@
     "require": {
         "squizlabs/php_codesniffer": "^3",
         "php": "^v8.3",
-        "doctrine/inflector": "^2.0"
+        "doctrine/inflector": "^2.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0"
     },
     "license": "MIT",
 	"scripts": {
