@@ -14,7 +14,10 @@ use const T_STRING;
 final class SingularClassNameSniff implements Sniff
 {
 
-	public const string CODE_PLURAL_IN_CLASS_NAME = 'PluralInClassName';
+	/**
+  * @var string
+  */
+ public const CODE_PLURAL_IN_CLASS_NAME = 'PluralInClassName';
 
 	private Inflector $inflector;
 
@@ -26,13 +29,12 @@ final class SingularClassNameSniff implements Sniff
 	/**
 	 * @return array<int>
 	 */
-	#[Override]
 	public function register(): array
-	{
-		return [
-			T_CLASS,
-		];
-	}
+ {
+     return [
+   			T_CLASS,
+   		];
+ }
 
 	/**
 	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint
