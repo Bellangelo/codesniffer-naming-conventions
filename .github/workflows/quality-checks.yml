@@ -13,6 +13,21 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
+    can_be_downgraded:
+        name: Can be downgraded
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+
+        steps:
+            - uses: actions/checkout@v3
+            - uses: shivammathur/setup-php@v2
+              with:
+                php-version: 8.3
+                coverage: none
+            - uses: ramsey/composer-install@v2
+            - uses: ./.github/actions/downgrade
+            - run: cd build && composer install
+
     phpcs:
         name: CodeSniffer
         runs-on: ubuntu-latest
