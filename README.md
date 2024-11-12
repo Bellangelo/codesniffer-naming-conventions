@@ -12,7 +12,7 @@ composer require bellangelo/coding-standard --dev
 
 🔧 = [Automatic errors fixing](#fixing-errors-automatically)
 
-- [Bellangelo.Naming.AvoidNumberedVariableNames](#bellangelonamingavoidnumberedvariablenames) 🔧
+- [Bellangelo.Naming.AvoidNumberedVariableNames](#bellangelonamingavoidnumberedvariablenames)
 - [Bellangelo.Naming.DuplicateWordInNaming](#bellangelonamingduplicatewordinnaming) 🔧
 - [Bellangelo.Naming.SingularClassName](#bellangelonamingsingularclassname) 🔧
 
